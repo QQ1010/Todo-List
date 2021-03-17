@@ -7,7 +7,6 @@
 >
       <v-text-field v-model="newTodo" id="newTodo" name="newTodo"
       label="Input your todo list"
-      :rules="rules"
       hide-details="auto"
     ></v-text-field>
     </v-app-bar>
@@ -19,6 +18,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Home',
   data: () => ({
@@ -33,8 +33,9 @@ export default {
   methods: {
     addtodos() {
       const value = this.newTodo && this.newTodo.trim();
+      console.log(value);
       if (value) {
-        this.$store.dispatch('addtodos',text)
+        this.$store.dispatch('addtodos', value);
       }
       this.newTodo = '';
     },
