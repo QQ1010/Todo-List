@@ -30,15 +30,28 @@ export default {
       console.log('create new Todo', this.newTodo);
     },
   },
+  mounted() {
+    if (localStorage.todos) {
+      this.todos = JSON.parse(localStorage.getItem('todos'));
+    }
+  },
   methods: {
     addtodos() {
       const value = this.newTodo.trim();
+      this.todos.push(value);
       console.log(value);
       if (value) {
         this.$store.dispatch('Addtodos', value);
       }
       this.newTodo = '';
+      this.savetodos();
+      console.log(this.todos);
+    },
+    savetodos() {
+      const parsed = JSON.stringify(this.todos);
+      localStorage.setItem('todos', parsed);
     },
   },
+
 };
 </script>

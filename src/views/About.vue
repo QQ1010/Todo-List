@@ -55,7 +55,8 @@ export default {
   }),
   computed: {
     getTodoList() {
-      return this.$store.getters.getTodoList;
+      // return this.$store.getters.getTodoList;
+      return JSON.parse(localStorage.getItem('todos'));
     },
   },
 };
