@@ -13,6 +13,9 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    Addtodos({ commit }, todos) {
+      commit('addtodos', todos);
+    },
   },
   modules: {
   },

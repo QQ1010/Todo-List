@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>About page</h1>
-    <div v-if="todos === null">
+    <div v-if="getTodoList === null">
       Loading...
     </div>
   <v-card
@@ -10,7 +10,7 @@
     max-width="400"
     tile
   >
-  <div v-if="todos.length === 0">
+  <div v-if="getTodoList.length === 0">
     There is nothing.
     Go to Home Page to create your newTodo.
     <v-text-field
@@ -21,7 +21,7 @@
   </div>
   <v-list-item
     v-else
-    v-for="todo in todos"
+    v-for="todo in getTodoList"
     :key="todo.id"
     :value="todo"
     active-class="deep-purple--text text--accent-4"
@@ -54,9 +54,9 @@ export default {
     todos: [],
   }),
   computed: {
-    getTodoList: () => ({
-      todos,
-    }),
+    getTodoList() {
+      return this.$store.getters.getTodoList;
+    },
   },
 };
 </script>

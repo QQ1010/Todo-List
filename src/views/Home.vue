@@ -32,10 +32,10 @@ export default {
   },
   methods: {
     addtodos() {
-      const value = this.newTodo && this.newTodo.trim();
+      const value = this.newTodo.trim();
       console.log(value);
       if (value) {
-        this.$store.dispatch('addtodos', value);
+        this.$store.dispatch('Addtodos', value);
       }
       this.newTodo = '';
     },
