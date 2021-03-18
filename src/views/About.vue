@@ -3,6 +3,11 @@
     <h1>About page</h1>
     <div v-if="getTodoList === null">
       Loading...
+      <v-text-field
+      color="success"
+      loading
+      disabled
+    ></v-text-field>
     </div>
   <v-card
     v-else
@@ -13,11 +18,6 @@
   <div v-if="getTodoList.length === 0">
     There is nothing.
     Go to Home Page to create your newTodo.
-    <v-text-field
-      color="success"
-      loading
-      disabled
-    ></v-text-field>
   </div>
   <v-list-item
     v-else
